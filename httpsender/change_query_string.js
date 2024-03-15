@@ -59,19 +59,6 @@ function buildQueryString(params) {
     }).join('&');
 }
 
-function parseQueryString(queryString) {
-    var params = {};
-    // Phân chia chuỗi query string thành các cặp key-value
-    var queries = queryString.split("&");
-    queries.forEach(function(query) {
-        var pair = query.split('=');
-        if (pair[0] && pair[1]) {
-            params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1].replace(/\+/g, " "));
-        }
-    });
-    return params;
-}
-
 function responseReceived(msg, initiator, helper) {
 	// Debugging can be done using println like this
 	print('responseReceived called for url=' + msg.getRequestHeader().getURI().toString())
